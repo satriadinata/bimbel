@@ -33,29 +33,33 @@ Route::get('/delGuru/{id}', 'guruController@delete');
 Route::get('/editGuru/{id}', 'guruController@edit');
 Route::post('/updateGuru/{id}', 'guruController@update');
 
-Route::get('/Mapel', 'mapelController@index')->name('Mapel');
+Route::get('/mapel', 'mapelController@index')->name('Mapel');
 Route::get('/addMapel', 'mapelController@add')->name('addMapel');
 Route::post('/postMapel', 'mapelController@postMapel')->name('postMapel');
 Route::get('/delMapel/{id}', 'mapelController@delete');
 Route::get('/editMapel/{id}', 'mapelController@edit');
 Route::post('/updateMapel/{id}', 'mapelController@update');
 
-Route::get('/Kelas', 'kelasController@index')->name('Kelas');
-Route::get('/addKelas', 'kelasController@add')->name('addKelas');
-Route::post('/postKelas', 'kelasController@postKelas')->name('postKelas');
-Route::get('/delKelas/{id}', 'kelasController@delete');
-Route::get('/editKelas/{id}', 'kelasController@edit');
-Route::post('/updateKelas/{id}', 'kelasController@update');
+Route::get('/kelas', 'kelasmapelController@index')->name('Kelas');
+Route::get('/addKelas', 'kelasmapelController@add')->name('addKelas');
+Route::post('/postKelas', 'kelasmapelController@postKelas')->name('postKelas');
+Route::get('/delKelas/{id}', 'kelasmapelController@delete');
+Route::get('/editKelas/{id}', 'kelasmapelController@edit');
+Route::post('/updateKelas/{id}', 'kelasmapelController@update');
 
-Route::get('/Jadwal', 'jadwalController@index')->name('Jadwal');
+Route::get('/jadwal', 'jadwalController@index')->name('Jadwal');
 Route::get('/addJadwal', 'jadwalController@add')->name('addJadwal');
 Route::post('/postJadwal', 'jadwalController@postJadwal')->name('postJadwal');
 Route::get('/delJadwal/{id}', 'jadwalController@delete');
 Route::get('/editJadwal/{id}', 'jadwalController@edit');
 Route::post('/updateJadwal/{id}', 'jadwalController@update');
 
-Route::get('/Registrasi', 'registrasiController@index')->name('Registrasi');
-Route::get('/addRegistrasi', 'registrasiController@add')->name('addRegistrasi');
+Route::get('/registrasi', 'registrasiController@index')->name('Registrasi');
+Route::get('/detailRegist/{id}', 'registrasiController@detail')->name('detailKelas');
+Route::post('/addRegistrasi/{id}', 'registrasiController@add')->name('addRegist');
+Route::get('/hapusRegis/{ids}/{idk}', 'registrasiController@del')->name('hapusRegis');
+Route::get('/editNilai/{ids}/{idk}', 'registrasiController@edit')->name('editNilai');
+Route::post('/postNilai', 'registrasiController@update')->name('postNilai');
 Route::post('/postRegistrasi', 'registrasiController@postRegistrasi')->name('postRegistrasi');
 Route::get('/delRegistrasi/{id}', 'registrasiController@delete');
 Route::get('/editRegistrasi/{id}', 'registrasiController@edit');

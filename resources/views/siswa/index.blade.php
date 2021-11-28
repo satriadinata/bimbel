@@ -8,6 +8,10 @@
                 <div class="card-header">Data Siswa</div>
 
                 <div class="card-body">
+
+                    <a style="color: white;" href="{{route('addSiswa')}}" class="btn btn-primary">Tambah Data</a>
+                    <br>
+                    <br>
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}

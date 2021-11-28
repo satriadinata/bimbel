@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class mapel extends Model
+class Regristasi extends Model
 {
-    protected $table='mapel';
+    protected $table='registrasikelas';
     protected $fillable = [
-        'kodeMapel','namaMapel'
+        'idSiswa','idKelasMapel','nilaiAkhir','predikat'
     ];
     public $timestamps = false;
 }

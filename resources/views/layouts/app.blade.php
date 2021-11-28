@@ -96,7 +96,6 @@
 
                           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <a class="dropdown-item" href="{{ route('Registrasi') }}">Data Registrasi Kelas</a>
-                            <a class="dropdown-item" href="{{ route('addRegistrasi') }}">Tambah Registrasi Kelas</a>
                           </div>
                         </div>
 

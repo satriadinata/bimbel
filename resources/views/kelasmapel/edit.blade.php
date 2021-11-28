@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Tambah Data Guru</div>
+                <div class="card-header">Edit Data Kelas</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,16 +14,20 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('postGuru') }}">
+                    <form method="POST" action="{{ url('updateKelas/'.$data->idKelasMapel) }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="namaGuru" class="col-md-4 col-form-label text-md-right">Nama Guru</label>
+                            <label for="kodeMapel" class="col-md-4 col-form-label text-md-right">Mapel</label>
 
                             <div class="col-md-6">
-                                <input id="namaGuru" type="text" class="form-control @error('namaGuru') is-invalid @enderror" name="namaGuru" value="{{ old('namaGuru') }}" required autocomplete="namaGuru" autofocus>
+                                <select name="kodeMapel" value="{{ old('kodeMapel') }}" class="form-control @error('kodeMapel') is-invalid @enderror" required autocomplete="kodeMapel">
+                                <?php foreach ($mapel as $key=>$value){ ?>
+                                    <option <?php  echo ($value->kodeMapel == $data->kodeMapel) ? 'selected':'';  ?> value="{{$value->kodeMapel}}" ><?php echo $value->kodeMapel.' - '.$value->namaMapel ?></option>
+                                <?php } ?>
+                                </select>
 
-                                @error('namaGuru')
+                                @error('kodeMapel')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -32,12 +36,16 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="tanggalLahirGuru" class="col-md-4 col-form-label text-md-right">Tgl. Lahir Guru</label>
+                            <label for="idGuru" class="col-md-4 col-form-label text-md-right">Guru</label>
 
                             <div class="col-md-6">
-                                <input id="tanggalLahirGuru" type="date" class="form-control @error('tanggalLahirGuru') is-invalid @enderror" name="tanggalLahirGuru" value="{{ old('tanggalLahirGuru') }}" required autocomplete="tanggalLahirGuru" autofocus>
+                                <select name="idGuru" value="{{ old('idGuru') }}" class="form-control @error('idGuru') is-invalid @enderror" required autocomplete="idGuru">
+                                <?php foreach ($guru as $key=>$value){ ?>
+                                    <option <?php  echo ($value->idGuru == $data->idGuru) ? 'selected':'';  ?> value="{{$value->idGuru}}" ><?php echo $value->namaGuru ?></option>
+                                <?php } ?>
+                                </select>
 
-                                @error('tanggalLahirGuru')
+                                @error('idGuru')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -46,26 +54,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="alamatGuru" class="col-md-4 col-form-label text-md-right">Alamat Guru</label>
+                            <label for="kelas" class="col-md-4 col-form-label text-md-right">Kelas</label>
 
                             <div class="col-md-6">
-                                <input id="alamatGuru" type="text" class="form-control @error('alamatGuru') is-invalid @enderror" name="alamatGuru" value="{{ old('alamatGuru') }}" required autocomplete="alamatGuru" autofocus>
+                                <input id="kelas" type="text" class="form-control @error('kelas') is-invalid @enderror" name="kelas" value="{{ $data->kelas }}" required autocomplete="kelas" autofocus>
 
-                                @error('alamatGuru')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="noTelpGuru" class="col-md-4 col-form-label text-md-right">No. Telp Guru</label>
-
-                            <div class="col-md-6">
-                                <input id="noTelpGuru" type="text" class="form-control @error('noTelpGuru') is-invalid @enderror" name="noTelpGuru" value="{{ old('noTelpGuru') }}" required autocomplete="noTelpGuru" autofocus>
-
-                                @error('noTelpGuru')
+                                @error('kelas')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
