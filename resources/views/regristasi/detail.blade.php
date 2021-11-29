@@ -11,7 +11,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="idSiswa" class="col-md-4 col-form-label text-md-right">Guru</label>
+                            <label for="idSiswa" class="col-md-4 col-form-label text-md-right">Siswa</label>
 
                             <div class="col-md-6">
                                 <select name="idSiswa" value="{{ old('idSiswa') }}" class="form-control @error('idSiswa') is-invalid @enderror" required autocomplete="idSiswa">
