@@ -31,7 +31,7 @@ Route::get('/addGuru', 'guruController@add')->name('addGuru');
 Route::post('/postGuru', 'guruController@postGuru')->name('postGuru');
 Route::get('/delGuru/{id}', 'guruController@delete');
 Route::get('/editGuru/{id}', 'guruController@edit');
-Route::post('/updateGuru/{id}', 'guruController@update');
+Route::post('/updateGuru/{id}', 'guruController@updater');
 
 Route::get('/mapel', 'mapelController@index')->name('Mapel');
 Route::get('/addMapel', 'mapelController@add')->name('addMapel');
