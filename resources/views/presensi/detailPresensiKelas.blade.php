@@ -25,7 +25,7 @@
                                <td>{{$value->pertemuanKe}}</td>
                                <td>{{$value->tanggalPertemuan}}</td>
                                <td>
-                                    <a onclick="hapus('<?php echo $value->idKelasMapel ?>','<?php echo $value->pertemuanKe ?>')" style="color:white;" class="btn btn-danger">Delete</a>
+                                    <!-- <a onclick="hapus('<?php echo $value->idKelasMapel ?>','<?php echo $value->pertemuanKe ?>')" style="color:white;" class="btn btn-danger">Delete</a> -->
                                     <a href="{{url('detailPresensi/').'/'.$value->idKelasMapel.'/'.$value->pertemuanKe}}" style="color:white;" class="btn btn-success">Detail Presensi</a>
                                </td>
                             </tr>
