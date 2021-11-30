@@ -99,6 +99,17 @@
                           </div>
                         </div>
 
+                        <div class="dropdown show">
+                          <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Presensi
+                          </a>
+
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="{{ route('presensi') }}">Data Presensi</a>
+                          </div>
+                        </div>
+
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->

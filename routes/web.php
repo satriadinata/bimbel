@@ -64,3 +64,15 @@ Route::post('/postRegistrasi', 'registrasiController@postRegistrasi')->name('pos
 Route::get('/delRegistrasi/{id}', 'registrasiController@delete');
 Route::get('/editRegistrasi/{id}', 'registrasiController@edit');
 Route::post('/updateRegistrasi/{id}', 'registrasiController@update');
+
+Route::get('/presensi', 'presensiController@index')->name('presensi');
+Route::get('/detailPresensiKelas/{id}', 'presensiController@detailPresensiKelas')->name('detailPresensiKelas');
+Route::get('/detailPresensi/{idk}/{pk}', 'presensiController@detailPresensi')->name('detailPresensi');
+Route::get('/tambahPertemuan/{id}', 'presensiController@tambahPertemuan')->name('tambahPertemuan');
+Route::get('/present/{id}', 'presensiController@present')->name('present');
+Route::get('/cancel/{id}', 'presensiController@cancel')->name('cancel');
+Route::get('/addPresensi', 'presensiController@add')->name('addPresensi');
+Route::post('/postPresensi', 'presensiController@post')->name('postPresensi');
+Route::get('/delPresensi/{id}', 'presensiController@delete');
+Route::get('/editPresensi/{id}', 'presensiController@edit');
+Route::post('/updatePresensi/{id}', 'presensiController@update');
