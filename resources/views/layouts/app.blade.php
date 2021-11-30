@@ -109,6 +109,10 @@
                           </div>
                         </div>
 
+                        <li class="nav-item">
+                            <a  style="color:#1d68a7;" class="nav-link" href="{{ route('nilai') }}">Nilai</a>
+                        </li>
+
 
                     </ul>
 

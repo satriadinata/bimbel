@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Regristasi;
+use PDF;
 class registrasiController extends Controller
 {
     public function index()
@@ -100,5 +101,32 @@ class registrasiController extends Controller
             ]);
 
         return redirect()->route('detailKelas',['id'=>$request->idk]);
+    }
+    public function nilai()
+    {
+        $data=DB::table('kelasmapel')
+        ->join('jadwal','jadwal.idKelasMapel','=','kelasmapel.idKelasMapel')
+        ->join('guru','guru.idGuru','=','kelasmapel.idGuru')
+        ->join('mapel','mapel.kodeMapel','=','kelasmapel.kodeMapel')
+        ->get();
+        return view('nilai/index',['data'=>$data]);
+    }
+    public function cetakNilai($idk)
+    {
+       $data=DB::table('registrasikelas')
+        ->join('siswa','siswa.idSiswa','=','registrasikelas.idSiswa')
+        ->where('registrasikelas.idKelasMapel','=',$idk)
+        ->get();
+
+        $kelas=DB::table('kelasmapel')
+        ->join('jadwal','jadwal.idKelasMapel','=','kelasmapel.idKelasMapel')
+        ->join('guru','guru.idGuru','=','kelasmapel.idGuru')
+        ->join('mapel','mapel.kodeMapel','=','kelasmapel.kodeMapel')
+        ->where('kelasmapel.idKelasMapel','=',$idk)
+        ->first();
+
+        $pdf = PDF::loadView('nilai', ['data'=>$data,'kelas'=>$kelas]);
+        return $pdf->download('nilaiKelas '.$kelas->namaMapel.'-'.$kelas->kelas.'.pdf');
+
     }
 }

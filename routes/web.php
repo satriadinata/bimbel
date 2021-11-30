@@ -76,3 +76,6 @@ Route::post('/postPresensi', 'presensiController@post')->name('postPresensi');
 Route::get('/delPresensi/{id}', 'presensiController@delete');
 Route::get('/editPresensi/{id}', 'presensiController@edit');
 Route::post('/updatePresensi/{id}', 'presensiController@update');
+
+Route::get('/nilai', 'registrasiController@nilai')->name('nilai');
+Route::get('/cetakNilai/{id}', 'registrasiController@cetakNilai')->name('cetakNilai');
